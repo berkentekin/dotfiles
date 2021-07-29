@@ -15,6 +15,8 @@ vim.o.hlsearch = false
 vim.cmd [[set undofile]]
 
 -- Decrease update time
+vim.o.timeoutlen = 1000
+vim.o.ttimeoutlen = 50
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 

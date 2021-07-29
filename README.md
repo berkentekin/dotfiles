@@ -1,4 +1,4 @@
 # dotfiles
 My configurations for various applications.
 
-This made me learn GNU Stow, which is very intriguing.
+My nvim configuration is "inspired" by mjlbach/defaults.nvim, but hopefully I'll modify it soon.
