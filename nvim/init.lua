@@ -2,8 +2,12 @@ require('plugins')
 
 ---- Basic Settings ----
 
--- Set hidden
-vim.o.hidden = true
+vim.cmd([[
+augroup custom_term
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+augroup END
+]])
 
 -- Show line numbers
 vim.wo.number = true
@@ -81,12 +85,12 @@ vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true,
 
 
 -- Python shortcuts
-vim.cmd([[autocmd FileType python map <buffer> <F5> <esc>:w<CR>:te '!python3' shellescape(@%, 1)<CR>]])
-vim.cmd([[autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:te '!python3' shellescape(@%, 1)<CR>]])
+vim.cmd([[autocmd FileType python map <buffer> <F5> <esc>:w<CR>:!exec '!python3' shellescape(@%, 1)<CR>]])
+vim.cmd([[autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:!exec '!python3' shellescape(@%, 1)<CR>]])
 
 -- C shortcuts
-vim.cmd([[autocmd FileType c map <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
-vim.cmd([[autocmd FileType c imap <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
+vim.cmd([[autocmd FileType c map <buffer> <F5> <esc>:w<CR>:te /usr/bin/gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
+vim.cmd([[autocmd FileType c imap <buffer> <F5> <esc>:w<CR>:te /usr/bin/gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
 
 
 

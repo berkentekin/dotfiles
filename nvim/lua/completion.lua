@@ -1,6 +1,10 @@
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Activate nvim-lightbulb
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+
 -- Compe setup
 require'compe'.setup {
   enabled = true;

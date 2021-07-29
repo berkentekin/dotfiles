@@ -22,6 +22,7 @@ return require('packer').startup(function()
 
   -- Code autocompletion
   use 'hrsh7th/nvim-compe'
+  use 'kosayoda/nvim-lightbulb'
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
