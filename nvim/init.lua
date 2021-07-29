@@ -60,7 +60,24 @@ vim.cmd [[colorscheme dracula]]
 
 -- Lualine
 require('lualine').setup{
-  options = {theme = 'dracula'},
+  options = {
+    theme = 'dracula',
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {"branch", "diff"},
+    lualine_c = {"filename"},
+    lualine_x = {
+      {"diagnostics", sources = {"nvim_lsp"}},
+      "encoding",
+      "fileformat",
+      "filetype"
+      },
+    lualine_y = {"progress"},
+    lualine_z = {"location"}
+  }
 }
 
 
