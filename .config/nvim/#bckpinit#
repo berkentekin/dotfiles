@@ -1,0 +1,173 @@
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Auto-completion
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'deoplete-plugins/deoplete-clang'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Linting
+Plug 'dense-analysis/ale'
+
+" Code Formatting
+Plug 'sbdchd/neoformat'
+
+" Highlight whitespaces
+Plug 'ntpeters/vim-better-whitespace'
+
+" LaTeX
+Plug 'lervag/vimtex'
+
+" Status Bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Automatic bracket completion
+Plug 'jiangmiao/auto-pairs'
+
+" Comment plugin
+Plug 'scrooloose/nerdcommenter'
+
+" Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Highlight yanked text
+Plug 'machakann/vim-highlightedyank'
+
+" Code folding
+Plug 'tmhedberg/SimpylFold'
+
+" Colorschemes
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'arzg/vim-colors-xcode'
+Plug 'lifepillar/vim-solarized8'
+
+" Improve Syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+" Tab bar
+Plug 'kyazdani42/nvim-web-devicons'
+
+" Start screen
+Plug 'mhinz/vim-startify'
+
+" Show colors of hexcodes
+Plug 'ap/vim-css-color'
+
+" Git signs
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'lewis6991/gitsigns.nvim'
+
+" Switch between .c and .h
+Plug 'ericcurtin/CurtineIncSw.vim'
+
+
+call plug#end()
+
+
+"============================== Basic Settings ================================
+
+filetype plugin indent on
+set title
+set number relativenumber
+au InsertEnter * set norelativenumber
+au InsertLeave * set relativenumber
+
+set termguicolors
+colorscheme dracula
+let g:airline_theme='dracula'
+
+" use system clipboard
+set clipboard=unnamedplus
+
+
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
+
+" Show line at 80th Column
+set colorcolumn=80
+
+" Fix ESC delay
+set timeoutlen=1000 ttimeoutlen=0
+
+" Automatically remove trailing whitespace upon save
+autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" Don't indent switch case in C and C++
+au FileType c,cpp  setl cindent cinoptions+=:0
+
+" Enable Powerline symbols for vim-airline
+" let g:airline_powerline_fonts = 1
+
+"==================== Code Formatting, shortcuts etc. =========================
+
+" VimTeX
+let g:tex_flavor = "latex"
+let g:vimtex_view_general_viewer = 'evince'
+
+" Disable ALE LSP (it is provided by Coc.nvim)
+let g:ale_disable_lsp = 1
+
+" Linter Options
+let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang'],
+    \ 'tex': ['chktex']
+\}
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 8}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
+
+" Python shortcuts
+autocmd FileType python map <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" C shortcuts
+autocmd FileType c map <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>
+autocmd FileType c imap <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>
+
+" Make
+autocmd FileType c map <buffer> <F12> <esc>:w<CR>:!make && sudo make install%<<CR>
+autocmd FileType c imap <buffer> <F12> <esc>:w<CR>:!make && sudo make install%<<CR>
+
+" Create C template for new C files
+autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
+
+" Airline Settings
+let g:airline_section_z = airline#section#create(['windowswap', 'obsession', get(b:,'gitsigns_status',''),'%3p%%'.g:airline_symbols.space, 'linenr', 'maxlinenr', g:airline_symbols.space.':%2.3c%-.3V'])
+
+" Switch between .c and .h with <F12>
+map <F12> :call CurtineIncSw()<CR>
+
+
+" Enable Treesitter Syntax Highlighting
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+" Italic Comments
+" highlight Comment cterm=italic gui=italic
+"
+source $HOME/.config/nvim/coc.vim
