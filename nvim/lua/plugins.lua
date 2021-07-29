@@ -63,9 +63,6 @@ return require('packer').startup(function()
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-  -- Tab bar
-  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-
   -- Start screen
   use 'mhinz/vim-startify'
 
