@@ -58,6 +58,12 @@ vim.o.termguicolors = true
 -- Set colorscheme (must come after set termguicolors)
 vim.cmd [[colorscheme dracula]]
 
+-- Lualine
+require('lualine').setup{
+  options = {theme = 'dracula'},
+}
+
+
 -- Highlight on yank
 vim.api.nvim_exec(
   [[

@@ -40,8 +40,8 @@ return require('packer').startup(function()
   use 'lervag/vimtex'
 
   -- Status Bar
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
+
 
   -- Automatic bracket completion
   use 'jiangmiao/auto-pairs'
