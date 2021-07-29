@@ -8,7 +8,7 @@ vim.wo.number = true
 -- Enable mouse
 vim.o.mouse = 'a'
 
---Set highlight on search
+-- Set highlight on search
 vim.o.hlsearch = false
 
 -- Save undo history

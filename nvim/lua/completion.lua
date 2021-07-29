@@ -50,8 +50,8 @@ local check_back_space = function()
 end
 
 -- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
+-- move to prev/next item in completion menuone
+-- jump to prev/next snippet's placeholder
 local luasnip = require 'luasnip'
 
 _G.tab_complete = function()
