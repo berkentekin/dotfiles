@@ -2,6 +2,9 @@ require('plugins')
 
 ---- Basic Settings ----
 
+-- Set hidden
+vim.o.hidden = true
+
 -- Show line numbers
 vim.wo.number = true
 
@@ -30,6 +33,18 @@ vim.cmd([[
 ]])
 
 
+-- Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Kitty Navigation Settings
+vim.g.kitty_navigator_no_mappings = true
+vim.api.nvim_set_keymap('n', '<A-h>', ":KittyNavigateLeft<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-j>', ":KittyNavigateDown<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-k>', ":KittyNavigateUp<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-l>', ":KittyNavigateRight<cr>", { noremap = true, silent = true })
+
 -- Leave space on the leftmost column for warnings
 vim.wo.signcolumn = 'yes'
 
@@ -51,19 +66,29 @@ vim.api.nvim_exec(
 )
 
 -- Buffer Navigation
-vim.o.hidden = true
-vim.api.nvim_set_keymap('n', '<C-N>', ':bnext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-P>', ':bprev<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-n>', ':bnext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':bprev<CR>', { noremap = true })
 
+-- Enter terminal mode
+vim.api.nvim_set_keymap('n', '<leader>t', ':terminal<CR>', { noremap = true })
 
--- Remap space as leader key
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- Escape Terminal Mode
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-N>', { noremap = true })
 
--- Remap for dealing with word wrap
+-- Remap for dealing with word wrap, for the cursor to land at correct line
 vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
+
+
+-- Python shortcuts
+vim.cmd([[autocmd FileType python map <buffer> <F5> <esc>:w<CR>:te '!python3' shellescape(@%, 1)<CR>]])
+vim.cmd([[autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:te '!python3' shellescape(@%, 1)<CR>]])
+
+-- C shortcuts
+vim.cmd([[autocmd FileType c map <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
+vim.cmd([[autocmd FileType c imap <buffer> <F5> <esc>:w<CR>:!gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
+
+
 
 -- Map blankline
 vim.g.indent_blankline_char = '┊'

@@ -11,6 +11,9 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
 
+  -- Navigate vim and kitty
+  use 'knubie/vim-kitty-navigator'
+
   -- LSP
   use 'neovim/nvim-lspconfig'
 
