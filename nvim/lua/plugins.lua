@@ -55,16 +55,16 @@ return require('packer').startup(function()
   use 'tmhedberg/SimpylFold'
 
   -- Colorschemes
-  use {'dracula/vim', as = 'dracula'}
+  use { 'dracula/vim', as = 'dracula' }
 
   -- Improve Syntax
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}  -- We recommend updating the parsers on update
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  -- We recommend updating the parsers on update
 
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- Tab bar
-  use 'kyazdani42/nvim-web-devicons'
+  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
   -- Start screen
   use 'mhinz/vim-startify'
