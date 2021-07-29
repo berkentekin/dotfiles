@@ -56,9 +56,6 @@ return require('packer').startup(function()
 
   -- Colorschemes
   use {'dracula/vim', as = 'dracula'}
-  use 'ghifarit53/tokyonight-vim'
-  use 'arzg/vim-colors-xcode'
-  use 'lifepillar/vim-solarized8'
 
   -- Improve Syntax
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}  -- We recommend updating the parsers on update
@@ -74,9 +71,6 @@ return require('packer').startup(function()
 
   -- Show colors of hexcodes
   use 'ap/vim-css-color'
-
-  -- Git signs
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Switch between .c and .h
   use 'ericcurtin/CurtineIncSw.vim'
