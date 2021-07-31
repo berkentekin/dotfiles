@@ -55,42 +55,42 @@ vim.wo.signcolumn = 'yes'
 -- Enable true color
 vim.o.termguicolors = true
 
--- Set colorscheme (must come after set termguicolors)
-vim.cmd [[colorscheme dracula]]
-
--- Lualine
+-- Set colorscheme and Lualine (must come after set termguicolors)
+lualine_theme = require('sunshine_noasync')
 require('lualine').setup{
-  options = {
-    theme = 'dracula',
-    section_separators = {'', ''},
-    component_separators = {'', ''},
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {"branch", "diff"},
-    lualine_c = {"filename"},
-    lualine_x = {
-      {"diagnostics", sources = {"nvim_lsp"}},
-      "encoding",
-      "fileformat",
-      "filetype"
-      },
-    lualine_y = {"progress"},
-    lualine_z = {"location"}
+	options = {
+		theme = lualine_theme == "day" and 'auto' or 'dracula',
+		section_separators = {'', ''},
+		component_separators = {'', ''},
+	},
+	sections = {
+        lualine_a = {'mode'},
+        lualine_b = {"branch", "diff"},
+        lualine_c = {"filename"},
+        lualine_x = {
+          {"diagnostics", sources = {"nvim_lsp"}},
+          "encoding",
+          "fileformat",
+          "filetype"
+          },
+        lualine_y = {"progress"},
+        lualine_z = {"location"}
   }
 }
-
+--else
+	--require('lualine').setup({
+		--options = {theme = 'dracula'}
+	--})
+--end
 
 -- Highlight on yank
-vim.api.nvim_exec(
+vim.cmd(
   [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]],
-  false
-)
+]])
 
 -- Buffer Navigation
 vim.api.nvim_set_keymap('n', '<C-n>', ':bnext<CR>', { noremap = true })
@@ -115,7 +115,8 @@ vim.cmd([[autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:!exec '!python3
 vim.cmd([[autocmd FileType c map <buffer> <F5> <esc>:w<CR>:te /usr/bin/gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
 vim.cmd([[autocmd FileType c imap <buffer> <F5> <esc>:w<CR>:te /usr/bin/gcc -Wall -ansi -pedantic-errors % -o %<<CR>]])
 
-
+-- C template
+vim.cmd [[autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c]]
 
 -- Map blankline
 vim.g.indent_blankline_char = '┊'

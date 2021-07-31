@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/CurtineIncSw.vim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   SimpylFold = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/SimpylFold"
@@ -85,17 +89,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
-  ["ctrlp.vim"] = {
-    loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/ctrlp.vim"
-  },
   dracula = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/dracula"
+  },
+  github = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/github"
+  },
+  ["lua-language-server"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/lua-language-server"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   neoformat = {
     loaded = true,
@@ -105,9 +113,25 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
+  ["nvim-compe"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -117,37 +141,45 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
-  ["tokyonight-vim"] = {
+  ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/tokyonight-vim"
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["vim-airline"] = {
+  ["popup.nvim"] = {
     loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-airline"
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
-  ["vim-airline-themes"] = {
+  ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-better-whitespace"] = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-better-whitespace"
   },
-  ["vim-colors-xcode"] = {
+  ["vim-colors-solarized"] = {
     loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-colors-xcode"
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-colors-solarized"
   },
   ["vim-css-color"] = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-css-color"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
   ["vim-highlightedyank"] = {
     loaded = true,
     path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-highlightedyank"
   },
-  ["vim-solarized8"] = {
+  ["vim-kitty-navigator"] = {
     loaded = true,
-    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-solarized8"
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-kitty-navigator"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/home/excelsis/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
   },
   ["vim-startify"] = {
     loaded = true,

@@ -2,10 +2,15 @@
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+require'packer.luarocks'.install_commands()
+require'packer.luarocks'.setup_paths()
 
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  -- Isolated Luarocks
+  use_rocks {'luafilesystem', 'luaposix'}
 
   -- Git integration
   use 'tpope/vim-fugitive' -- Git commands in nvim
@@ -60,6 +65,9 @@ return require('packer').startup(function()
 
   -- Colorschemes
   use { 'dracula/vim', as = 'dracula' }
+  use { 'endel/vim-github-colorscheme', as = 'github' }
+  use "altercation/vim-colors-solarized"
+
 
   -- Improve Syntax
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  -- We recommend updating the parsers on update

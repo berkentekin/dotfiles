@@ -107,35 +107,17 @@ alias kitty-dev="cd $HOME/Development/git/kitty"
 alias kitty-dev-run="$HOME/Development/git/kitty/kitty/launcher/kitty"
 alias swayconf="nvim $HOME/.config/sway/config"
 alias javatutor="firefox $HOME/Development/Assignments/TUDelft/Y1/Q1/CSE1100/Material/Textbooks/tutorial/index.html&"
-the() {
-    if [ -n "$1" ]
-    then
-	cd $HOME/Development/Assignments/CENG140/THE/THE$1
-    fi
-}
+alias luamake=/home/excelsis/.local/share/nvim/site/pack/packer/start/lua-language-server/3rd/luamake/luamake
 
-# For TU Delft
-tud() {
-	if [ $# -gt 0 ]
-	then
-		shift 1
-		if [ $# -gt 1 ]
-		then
-			shift 1
-			if [ $# -gt 2 ]
-			then
-				cd $HOME/Development/Assignments/TUDelft/Y$1/Q$2/CSE$3
-			else
-				cd $HOME/Development/Assignments/TUDelft/Y$1
-			fi
-		else
-			cd $HOME/Development/Assignments/TUDelft/Y$1
-		fi
-	else
-		cd $HOME/Development/Assignments/TUDelft/
-	fi
-}
-
+# automatically change kitty colors based on time of day
+if command -v "sunshine" >/dev/null; then
+  # Replace "@45 15" with your location string, e.g. "#Barcelona"
+  if [[ "$(sunshine -s "@36 30")" = "day" ]]; then
+    kitty_change_theme light
+  else
+    kitty_change_theme dark
+  fi
+fi
 # 10ms for key sequences
 KEYTIMEOUT=1
 
@@ -143,7 +125,6 @@ path+=('$HOME/Development/src/flutter/bin')
 path+=('$HOME/.config/emacs/bin')
 XDG_CONFIG_HOME='$HOME/.config'
 export EDITOR=nvim
-typeset -aU path
+#typeset -aU path
 export PATH
 
-alias luamake=/home/excelsis/.local/share/nvim/site/pack/packer/start/lua-language-server/3rd/luamake/luamake
