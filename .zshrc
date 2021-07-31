@@ -125,6 +125,6 @@ path+=('$HOME/Development/src/flutter/bin')
 path+=('$HOME/.config/emacs/bin')
 XDG_CONFIG_HOME='$HOME/.config'
 export EDITOR=nvim
-#typeset -aU path
+typeset -aU path
 export PATH
 

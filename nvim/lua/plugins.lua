@@ -30,6 +30,8 @@ return require('packer').startup(function()
   use 'kosayoda/nvim-lightbulb'
 
   -- Snippets
+  use "rafamadriz/friendly-snippets"
+  use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip'
 
   -- Linting
