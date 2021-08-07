@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/home/excelsis/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="strug"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -96,6 +96,10 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
 alias nv="nvim"
 alias zshconf="nvim $HOME/.zshrc"
 alias nvconf="cd $HOME/.config/nvim && nvim init.lua"
@@ -109,20 +113,9 @@ alias swayconf="nvim $HOME/.config/sway/config"
 alias javatutor="firefox $HOME/Development/Assignments/TUDelft/Y1/Q1/CSE1100/Material/Textbooks/tutorial/index.html&"
 alias luamake=/home/excelsis/.local/share/nvim/site/pack/packer/start/lua-language-server/3rd/luamake/luamake
 
-# automatically change kitty colors based on time of day
-if command -v "sunshine" >/dev/null; then
-  # Replace "@45 15" with your location string, e.g. "#Barcelona"
-  if [[ "$(sunshine -s "@36 30")" = "day" ]]; then
-    kitty_change_theme light
-  else
-    kitty_change_theme dark
-  fi
-fi
-# 10ms for key sequences
-KEYTIMEOUT=1
-
 path+=('$HOME/Development/src/flutter/bin')
 path+=('$HOME/.config/emacs/bin')
+path+=('$HOME/.local/bin')
 XDG_CONFIG_HOME='$HOME/.config'
 export EDITOR=nvim
 typeset -aU path
