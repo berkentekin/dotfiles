@@ -35,13 +35,10 @@ return require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
 
   -- Linting
-  use 'dense-analysis/ale'
+  --use 'dense-analysis/ale'
 
   -- Code Formatting
   use 'sbdchd/neoformat'
-
-  -- Highlight Whitespaces
-  use 'ntpeters/vim-better-whitespace'
 
   -- LaTeX
   use 'lervag/vimtex'

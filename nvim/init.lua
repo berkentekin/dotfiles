@@ -56,32 +56,32 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 
 -- Set colorscheme and Lualine (must come after set termguicolors)
-lualine_theme = require('sunshine_noasync')
+vim.cmd [[colorscheme dracula]]
+--lualine_theme = require('sunshine_noasync')
 require('lualine').setup{
 	options = {
-		theme = lualine_theme == "day" and 'auto' or 'dracula',
+		--theme = lualine_theme == "day" and 'auto' or 'dracula',
+		theme = 'dracula',
 		section_separators = {'', ''},
 		component_separators = {'', ''},
 	},
 	sections = {
-        lualine_a = {'mode'},
-        lualine_b = {"branch", "diff"},
-        lualine_c = {"filename"},
-        lualine_x = {
-          {"diagnostics", sources = {"nvim_lsp"}},
-          "encoding",
-          "fileformat",
-          "filetype"
-          },
-        lualine_y = {"progress"},
-        lualine_z = {"location"}
+	lualine_a = {'mode'},
+	lualine_b = {"branch", "diff"},
+	lualine_c = {"filename"},
+	lualine_x = {
+	  {"diagnostics", sources = {"nvim_lsp"}},
+	  "encoding",
+	  "fileformat",
+	  "filetype"
+	  },
+	lualine_y = {"progress"},
+	lualine_z = {"location"}
   }
 }
---else
-	--require('lualine').setup({
-		--options = {theme = 'dracula'}
-	--})
---end
+require('lualine').setup({
+	options = {theme = 'dracula'}
+})
 
 -- Highlight on yank
 vim.cmd(
