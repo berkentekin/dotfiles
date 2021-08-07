@@ -116,8 +116,9 @@ alias luamake=/home/excelsis/.local/share/nvim/site/pack/packer/start/lua-langua
 path+=('$HOME/Development/src/flutter/bin')
 path+=('$HOME/.config/emacs/bin')
 path+=('$HOME/.local/bin')
-XDG_CONFIG_HOME='$HOME/.config'
+export XDG_CONFIG_HOME='$HOME/.config'
 export EDITOR=nvim
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 typeset -aU path
 export PATH
 
