@@ -79,9 +79,9 @@ require('lualine').setup{
 	lualine_z = {"location"}
   }
 }
-require('lualine').setup({
-	options = {theme = 'dracula'}
-})
+--require('lualine').setup({
+	--options = {theme = 'dracula'}
+--})
 
 -- Highlight on yank
 vim.cmd(
